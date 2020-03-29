@@ -125,6 +125,10 @@ namespace HiddenSwitch.Networking.Unity
             if (type.IsInstanceOfType(mouseFocusedWindow))
             {
                 var displayField = type.GetField("m_TargetDisplay", BindingFlags.NonPublic | BindingFlags.Instance);
+                if (displayField == null)
+                {
+                    return;
+                }
                 displayId = (int) displayField.GetValue(mouseFocusedWindow);
             }
 
